@@ -1,0 +1,115 @@
+<html>
+<head>
+<style>
+/* Style the input fields and the message box */
+input {
+width: 100%;
+padding: 12px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+}
+
+/* Style the submit button */
+input[type=submit] {
+background-color: #04AA6D;
+color: white;
+}
+
+/* Style the container for inputs */
+.container {
+background-color: #f1f1f1;
+padding: 20px;
+}
+
+/* Style the message box */
+#message {
+display: none;
+background-color: #f1f1f1;
+color: #000;
+position: relative;
+padding: 20px;
+margin-top: 10px;
+}
+
+#message p {
+padding: 10px 35px;
+font-size: 18px;
+}
+
+/* Add a green text color and a checkmark when the password is correct */
+.valid {
+color: green;
+}
+
+.valid:before {
+position: relative;
+left: -35px;
+content: "✔";
+}
+
+/* Add a red text color and an "x" icon when the password is wrong */
+.invalid {
+color: red;
+}
+
+.invalid:before {
+position: relative;
+left: -35px;
+content: "✖";
+}
+</style>
+</head>
+<body>
+<div class="container">
+<form>
+<label for="psw">Password</label>
+<input type="password" id="psw" name="psw" required>
+<input type="submit" value="Submit">
+</form>
+</div>
+<div id="message">
+<p id="result" class="invalid">Wrong password</p>
+</div>
+<script>
+// Get the password input and the submit button
+var pswInput = document.getElementById("psw");
+var submitButton = document.querySelector("input[type=submit]");
+
+// Define the correct password
+var correctPassword = "norah";
+
+// Define the message to display
+var message = "تقدیم با عشق❤️";
+
+// Add an event listener to the submit button
+submitButton.addEventListener("click", function(event) {
+// Prevent the default action of the form submission
+event.preventDefault();
+
+// Get the user input
+var userInput = pswInput.value;
+
+// Get the result paragraph and the message box
+var result = document.getElementById("result");
+var messageBox = document.getElementById("message");
+
+// Compare the user input with the correct password
+if (userInput === correctPassword) {
+// If the password is correct, change the result class to valid and the text to the message
+result.className = "valid";
+result.textContent = message;
+} else {
+// If the password is wrong, change the result class to invalid and the text to "Wrong password"
+result.className = "invalid";
+result.textContent = "Wrong password";
+}
+
+// Show the message box
+messageBox.style.display = "block";
+});
+</script>
+</body>
+</html>
